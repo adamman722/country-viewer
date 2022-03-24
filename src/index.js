@@ -23,6 +23,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="testing" element={<DisplayPage />} />
+            // need to transfer other code from laptop to computer
             <Route path=":countryId" element={<CountryPage />} />
           </Route>
         </Routes>
