@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateStart = [];
+const initialState = { value: ["Somtthing"] };
 
-export const countryStorageSlice = createSlice({
-  name: "country",
-  initialState: { value: [] },
+export const countrySlice = createSlice({
+  name: "countries",
+  initialState: initialState,
   reducers: {
-    addToStorage: (state, action) => {
-      state.value = [...state, action.payload];
+    addCountry: (state, action) => {
+      state.value = [...state.value, action.payload];
     },
   },
 });
 
-export const { addToStorage } = countryStorageSlice.actions;
-
-export default countryStorageSlice.reducer;
+export const { addCountry } = countrySlice.actions;
+export default countrySlice.reducer;
