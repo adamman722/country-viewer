@@ -30,30 +30,30 @@ function CountryMainDisplay() {
   `;
   const [darkMode, setDarkMode] = useState(false);
 
-  async function getDataFromAPI() {
-    const url = "https://restcountries.com/v3.1/all";
-    await axios.get(url).then((res) => {
-      const { data } = res;
-      data.map((country) => {
-        // const {
-        //   capital,
-        //   continents,
-        //   currencies,
-        //   flags,
-        //   languages,
-        //   name,
-        //   population,
-        //   subregion,
-        //   tld,
-        // } = country;
-        console.log(country);
-      });
-    });
-  }
+  // async function getDataFromAPI() {
+  //   const url = "https://restcountries.com/v3.1/all";
+  //   await axios.get(url).then((res) => {
+  //     const { data } = res;
+  //     data.map((country) => {
+  //       // const {
+  //       //   capital,
+  //       //   continents,
+  //       //   currencies,
+  //       //   flags,
+  //       //   languages,
+  //       //   name,
+  //       //   population,
+  //       //   subregion,
+  //       //   tld,
+  //       // } = country;
+  //       console.log(country);
+  //     });
+  //   });
+  // }
 
-  useEffect(() => {
-    getDataFromAPI();
-  }, []);
+  // useEffect(() => {
+  //   getDataFromAPI();
+  // }, []);
 
   return (
     <div style={{ marin: 0, padding: 0 }}>
