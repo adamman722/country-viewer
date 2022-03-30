@@ -33,15 +33,16 @@ function SearchBar() {
 
   const slideIn = keyframes`
 from{
-  margin-top: -30px;
+  margin-top: 70px;
   opacity: .0;
 }
 to{
-  margin-top: 0px;
+  margin-top: 155px;
   opacity: 1;
 }
   `;
   const ListBox = styled.div`
+    position: absolute;
     animation: ${slideIn} 0.5s forwards;
   `;
   const FancyList = styled.ul`
@@ -56,15 +57,23 @@ to{
     padding: 15px;
     border-radius: 10px;
   `;
+  const ListItem = styled.li`
+    text-align: center;
+    width: 300px;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  `;
   const dropDown = (
     <ListBox className="drop-down">
       <FancyList>
-        <li>All</li>
-        <li>Africa</li>
-        <li>America</li>
-        <li>Asia</li>
-        <li>Europe</li>
-        <li>Oceania</li>
+        <ListItem>All</ListItem>
+        <ListItem>Africa</ListItem>
+        <ListItem>America</ListItem>
+        <ListItem>Asia</ListItem>
+        <ListItem>Europe</ListItem>
+        <ListItem>Oceania</ListItem>
       </FancyList>
     </ListBox>
   );

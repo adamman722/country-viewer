@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import countrySliceReducer from "./features/countryStorage";
 import CountryCard from "./components/CountryCard";
 import SearchBar from "./components/SearchBar";
+
 import App from "./App";
 
 const store = configureStore({
@@ -23,9 +24,6 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<SearchBar />} />
-            <Route path="country" element={<CountryCard />}>
-              <Route path=":countruId" element={<CountryCard />} />
-            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

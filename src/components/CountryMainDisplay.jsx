@@ -4,6 +4,8 @@ import styled from "styled-components";
 import "../fontawesome-free-6.1.1-web/css/all.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import CountryCard from "./CountryCard";
+import { addCountry } from "../features/countryStorage";
 
 function CountryMainDisplay() {
   const dispatch = useDispatch();
@@ -30,30 +32,42 @@ function CountryMainDisplay() {
   `;
   const [darkMode, setDarkMode] = useState(false);
 
-  // async function getDataFromAPI() {
-  //   const url = "https://restcountries.com/v3.1/all";
-  //   await axios.get(url).then((res) => {
-  //     const { data } = res;
-  //     data.map((country) => {
-  //       // const {
-  //       //   capital,
-  //       //   continents,
-  //       //   currencies,
-  //       //   flags,
-  //       //   languages,
-  //       //   name,
-  //       //   population,
-  //       //   subregion,
-  //       //   tld,
-  //       // } = country;
-  //       console.log(country);
-  //     });
-  //   });
-  // }
+  async function getDataFromAPI() {
+    const url = "https://restcountries.com/v3.1/all";
+    await axios.get(url).then((res) => {
+      const { data } = res;
+      data.map((country) => {
+        const {
+          capital,
+          continents,
+          currencies,
+          flags,
+          languages,
+          name,
+          population,
+          subregion,
+          tld,
+        } = country;
+        dispatch(
+          addCountry({
+            capital,
+            continents,
+            currencies,
+            flags,
+            languages,
+            name,
+            population,
+            subregion,
+            tld,
+          })
+        );
+      });
+    });
+  }
 
-  // useEffect(() => {
-  //   getDataFromAPI();
-  // }, []);
+  useEffect(() => {
+    getDataFromAPI();
+  }, []);
 
   return (
     <div style={{ marin: 0, padding: 0 }}>
@@ -66,6 +80,8 @@ function CountryMainDisplay() {
       </NavBar>
 
       <Outlet />
+
+      <CountryCard />
     </div>
   );
 }
