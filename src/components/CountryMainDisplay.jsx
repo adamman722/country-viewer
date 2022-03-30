@@ -45,9 +45,11 @@ function CountryMainDisplay() {
           languages,
           name,
           population,
+          region,
           subregion,
           tld,
         } = country;
+        console.log(country);
         dispatch(
           addCountry({
             capital,
@@ -57,6 +59,7 @@ function CountryMainDisplay() {
             languages,
             name,
             population,
+            region,
             subregion,
             tld,
           })
